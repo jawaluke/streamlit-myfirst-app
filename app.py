@@ -119,8 +119,9 @@ Enter the **Movie Name** see the result of the movie recommendation""")
 
 
     option = st.text_input(" which movie do you like the most? ")
-    
-    if df["title"].lower()==option.lower():
+    df["title"] = [i.lower() for i in df["title"]]
+
+    if df["title"]==option.lower():
         st.write("you selected : ",option)
 
         result_movie = search_movie(option.lower())
