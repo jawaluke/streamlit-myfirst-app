@@ -114,7 +114,7 @@ if True:
     st.write("# Movie Recommendation")
     st.write("""
 Enter the **Movie Name** see the result of the movie recommendation""")
-    df = st.cache(pd.read_csv)("https://raw.githubusercontent.com/jawaluke/streamlit-myfirst-app/master/movie_dataset.csv")
+    df = pd.read_csv("https://raw.githubusercontent.com/jawaluke/streamlit-myfirst-app/master/movie_dataset.csv")
 
 
     option = st.text_input(" which movie do you like the most? ")
