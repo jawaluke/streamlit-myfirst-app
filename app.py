@@ -26,7 +26,7 @@ def search_movie(option):
 
     ##Step 1: Read CSV File
 
-    df = pd.read_csv("https://raw.githubusercontent.com/jawaluke/streamlit-myfirst-app/master/movie_name.csv")
+    df = pd.read_csv("https://raw.githubusercontent.com/jawaluke/streamlit-myfirst-app/master/movie_dataset.csv")
     df["title"] = [i.lower() for i in df["title"]]
 
     features = "keywords cast genres director".split()
