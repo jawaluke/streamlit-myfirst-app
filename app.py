@@ -12,7 +12,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 # search movie recommendation
-@st.cache(suppress_st_warning=True)
 def search_movie(option):
 
 
