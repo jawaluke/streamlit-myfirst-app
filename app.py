@@ -43,6 +43,7 @@ def search_movie(option):
 
     def combine_features(row):
 
+        
         try:
             return row["keywords"]+" "+row["cast"]+" "+row["genres"]+" "+row["director"]
         except:
@@ -117,13 +118,16 @@ Enter the **Movie Name** see the result of the movie recommendation""")
     df = st.cache(pd.read_csv)("https://raw.githubusercontent.com/jawaluke/streamlit-myfirst-app/master/movie_dataset.csv")
 
 
-    option = st.selectbox(" which movie do you like the most? ", df["title"].unique())
-    st.write("you selected : ",option)
+    option = st.text_input(" which movie do you like the most? ", df["title"].unique())
+    
+    if df["CarName"].isin([option]):
+        st.write("you selected : ",option)
 
-    result_movie = search_movie(option.lower())
+        result_movie = search_movie(option.lower())
 
 
-    st.write(result_movie)         
-
+        st.write(result_movie)         
+    else:
+        st.info("Entered movie name is not found \n we will update the movies as soon as possible")
 
 
