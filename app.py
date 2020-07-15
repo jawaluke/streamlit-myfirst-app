@@ -12,7 +12,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 # search movie recommendation
-def search_movie(option):
+def search_movie(option,df):
 
 
     ###### helper functions. Use them when needed #######
@@ -25,7 +25,7 @@ def search_movie(option):
 
     ##Step 1: Read CSV File
 
-    df = pd.read_csv("https://raw.githubusercontent.com/jawaluke/streamlit-myfirst-app/master/movie_dataset.csv")
+    #df = pd.read_csv("https://raw.githubusercontent.com/jawaluke/streamlit-myfirst-app/master/movie_dataset.csv")
     df["title"] = [i.lower() for i in df["title"]]
 
     features = "keywords cast genres director".split()
@@ -123,7 +123,7 @@ Enter the **Movie Name** see the result of the movie recommendation""")
     if option.lower() in df["title"]:
         st.write("you selected : ",option)
 
-        result_movie = search_movie(option.lower())
+        result_movie = search_movie(option.lower(),df)
 
 
         st.write(result_movie)         
