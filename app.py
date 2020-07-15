@@ -118,7 +118,7 @@ Enter the **Movie Name** see the result of the movie recommendation""")
     df = st.cache(pd.read_csv)("https://raw.githubusercontent.com/jawaluke/streamlit-myfirst-app/master/movie_dataset.csv")
 
 
-    option = st.text_input(" which movie do you like the most? ", df["title"].unique())
+    option = st.text_input(" which movie do you like the most? ")
     
     if df["title"].isin([option.lower()]):
         st.write("you selected : ",option)
