@@ -5,7 +5,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import pyttsx3
 import speech_recognition as sr
-import pyaudio as py
+
 
 
 
