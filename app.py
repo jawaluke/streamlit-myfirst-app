@@ -3,9 +3,28 @@ import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import pyttsx3
+import speech_recognition as sr
+import pyaudio as py
 
 
 
+
+# speech to text
+def audio():
+    r=sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Speak Anything")
+        audio=r.listen(source)
+    
+
+        try:
+            said = r.recognize_google(audio)
+        
+    
+        except:
+            said = " sorry! try again"
+    return said
 
 
 
@@ -121,7 +140,23 @@ Enter the **Movie Name** see the result of the movie recommendation""")
     option = st.text_input(" which movie do you like the most? ")
     df["title"] = [i.lower() for i in df["title"]]
 
+    # voice search
+    if st.button("voice search"):
+        engine = pyttsx3.init()
+        engine.setProperty("rate",125)
+        engine.setProperty("volume",1.0)
+
+        engine.say(" say the movie name ")
+        engine.runAndWait()
+        
+        option = audio()
+
+    
+    
+    
     st.write("you selected : ",option)
+    
+    
 
     result_movie = search_movie(option.lower(),df)
 
